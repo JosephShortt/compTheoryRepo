@@ -61,3 +61,96 @@ Passwords cracked in less than a second due to:
 5. **Strong policies**: Enforce complex passwords and check against breach databases
 
 This demonstrates why SHA-256 alone is inadequate for password storage and why modern systems use specialized password hashing functions.
+
+## Getting Started
+
+### Prerequisites
+- Python 3.x
+- NumPy library
+- Jupyter Notebook or VS Code with Jupyter extension
+
+### Installation and Setup
+
+1. **Clone the repository**
+```bash
+   git clone https://github.com/JosephShortt/compTheoryRepo
+   cd compTheoryRepo
+```
+
+2. **Install NumPy**
+```bash
+   pip install numpy
+```
+
+3. **Open the notebook**
+   - Open the folder in VS Code
+   - Install the "Jupyter" extension if you haven't already
+   - Open `notebook.ipynb`
+   - Click "Run All" or run cells individually with the execute button
+
+### Running the Code
+
+1. **Run cells in order**: The notebook must be executed sequentially as later problems depend on functions from earlier problems.
+
+2. **Execute all cells**: In VS Code or Jupyter, use "Run All" to execute the entire notebook at once.
+
+3. **Individual execution**: You can run specific problems by executing their respective cells using the play button (▶️) next to each cell.
+
+### Expected Output
+- **Problem 2**: List of 64 hexadecimal constants
+- **Problem 3**: Padded message blocks in hexadecimal
+- **Problem 4**: SHA-256 hash output for test cases
+- **Problem 5**: Cracked passwords and security analysis
+
+### Testing
+To verify the implementation works correctly, check that:
+- The hash of "abc" produces: `ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad`
+- All three passwords in Problem 5 are successfully cracked
+
+
+## Conclusion
+
+This project demonstrates a complete implementation of the SHA-256 cryptographic hash algorithm 
+
+### Key Takeaways
+
+**Technical Understanding:**
+- SHA-256 is built on simple bitwise operations (XOR, AND, rotations) that combine to create cryptographic security
+- The algorithm's constants are derived transparently from prime numbers, ensuring no hidden backdoors
+- Padding and block processing enable consistent handling of variable-length inputs
+- The 64-round compression function creates the avalanche effect where small input changes produce dramatically different outputs
+
+**Security Lessons:**
+The password cracking exercise revealed critical vulnerabilities in naive password storage:
+- **Speed is the enemy**: SHA-256's efficiency (designed for data integrity) makes it terrible for passwords
+- **Predictability is fatal**: Even "complex" passwords like `P@ssw0rd` are easily cracked if they follow common patterns
+- **Defense in depth matters**: Proper password security requires multiple layers (salt + slow hashing + strong policies)
+
+
+By building SHA-256 from scratch and exploiting its weaknesses in password storage, this project bridges the gap between theoretical cryptography and practical security engineering.
+
+## References
+
+1. **NIST FIPS 180-4: Secure Hash Standard (SHS)**  
+   National Institute of Standards and Technology  
+   [https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf)  
+   *Primary specification document for SHA-256 algorithm implementation*
+
+2. **SHA-256 Algorithm Explained**  
+   Qvault  
+   [https://blog.boot.dev/cryptography/how-sha-2-works-step-by-step-sha-256/](https://blog.boot.dev/cryptography/how-sha-2-works-step-by-step-sha-256/)  
+   *Step-by-step guide to understanding SHA-256 internals*
+
+3. **Password Hashing: PBKDF2, Scrypt, Bcrypt and ARGON2**  
+   OWASP (Open Web Application Security Project)  
+   [https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)  
+   *Industry best practices for secure password storage*
+
+4. **Understanding Cryptographic Hash Functions**  
+   Practical Cryptography for Developers  
+   [https://cryptobook.nakov.com/cryptographic-hash-functions](https://cryptobook.nakov.com/cryptographic-hash-functions)  
+   *Comprehensive overview of hash function properties and applications*
+
+5. **Claude AI (Anthropic)**  
+   [https://claude.ai](https://claude.ai)  
+   *AI assistant used for implementation guidance and debugging support*
